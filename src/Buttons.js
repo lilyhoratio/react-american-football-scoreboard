@@ -1,20 +1,22 @@
 import React, {useState} from "react";
+import {homeScore} from "./App.js"
 
-function Buttons(props) {
-
-    const [homeScore, setHomeScore] = useState(0)
-    const [awayScore, setAwayScore] = useState(0)
+const Buttons = (props) => { 
+// function Buttons(props) {
+    console.log(props.homeScore)
+    // const [homeScore, setHomeScore] = useState(0)
+    // const [awayScore, setAwayScore] = useState(0)
 
     return (
         <section className="buttons">
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button className="homeButtons__touchdown" onClick = {() => setHomeScore(homeScore + 7)}>Home Touchdown</button>
-          <button className="homeButtons__fieldGoal" onClick = {() => setHomeScore(homeScore + 3)}>Home Field Goal</button>
+          <button className="homeButtons__touchdown" onClick = {() => props.setHomeScore(props.homeScore + 7)}>Home Touchdown</button>
+          <button className="homeButtons__fieldGoal" onClick = {() => props.setHomeScore(props.homeScore + 3)}>Home Field Goal</button>
         </div>
         <div className="awayButtons">
-          <button className="awayButtons__touchdown" onClick = {() => setAwayScore(awayScore + 7)}>Away Touchdown</button>
-          <button className="awayButtons__fieldGoal" onClick = {() => setAwayScore(awayScore + 3)}>Away Field Goal</button>
+          <button className="awayButtons__touchdown" onClick = {() => props.setAwayScore(props.awayScore + 7)}>Away Touchdown</button>
+          <button className="awayButtons__fieldGoal" onClick = {() => props.setAwayScore(props.awayScore + 3)}>Away Field Goal</button>
         </div>
       </section>
     )
